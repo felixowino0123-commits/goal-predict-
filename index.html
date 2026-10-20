@@ -1,0 +1,592 @@
+<!DOCTYPE htm<link rel="manifest" href="manifest.json">l>
+<html lang="en">
+<head>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>Football Predictor</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf4ea;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .app {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    input, button {
+      padding: 12px;
+      margin: 8px;
+      width: 85%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: darkgreen;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <h2>⚽ Football Predictor</h2>
+
+    <input id="home" placeholder="Home team">
+    <input id="away" placeholder="Away team">
+
+    <button onclick="predict()">Analyse Match</button>
+
+    <p id="result">Enter two teams to begin.</p>
+  </div>
+
+  <script>
+    function predict() {
+      const home = document.getElementById("home")
+        .value.trim();
+
+      const away = document.getElementById("away")
+        .value.trim();
+
+      const result = document.getElementById("result");
+
+      if (!home || !away) {
+        result.textContent = "Enter both team names.";
+        return;
+      }
+
+      if (home.toLowerCase() === away.toLowerCase()) {
+        result.textContent = "Enter two different teams.";
+        return;
+      }
+
+      result.textContent =
+        "Match: " + home + " vs " + away +
+        ". Add team statistics to calculate probabilities.";
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>Football Predictor</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf4ea;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .app {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    input, button {
+      padding: 12px;
+      margin: 8px;
+      width: 85%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: darkgreen;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <h2>⚽ Football Predictor</h2>
+
+    <input id="home" placeholder="Home team">
+    <input id="away" placeholder="Away team">
+
+    <button onclick="predict()">Analyse Match</button>
+
+    <p id="result">Enter two teams to begin.</p>
+  </div>
+
+  <script>
+    function predict() {
+      const home = document.getElementById("home")
+        .value.trim();
+
+      const away = document.getElementById("away")
+        .value.trim();
+
+      const result = document.getElementById("result");
+
+      if (!home || !away) {
+        result.textContent = "Enter both team names.";
+        return;
+      }
+
+      if (home.toLowerCase() === away.toLowerCase()) {
+        result.textContent = "Enter two different teams.";
+        return;
+      }
+
+      result.textContent =
+        "Match: " + home + " vs " + away +
+        ". Add team statistics to calculate probabilities.";
+    }
+  </<script>
+function predict() {
+  const home = document.getElementById("home").value.trim();
+  const away = document.getElementById("away").value.trim();
+  const result = document.getElementById("result");
+
+  if (home === "" || away === "") {
+    result.textContent = "Please enter both teams.";
+    return;
+  }
+
+  if (home.toLowerCase() === away.toLowerCase()) {
+    result.textContent = "Enter two different teams.";
+    return;
+  }
+
+  result.textContent = "Match: " + home + " vs " + away;
+}
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>Football Predictor</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf4ea;
+      padding: 20px;
+    }
+
+    .app {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    h1 {
+      color: darkgreen;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      font-weight: bold;
+    }
+
+    input, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      margin-top: 7px;
+      border-radius: 6px;
+    }
+
+    input {
+      border: 1px solid #aaa;
+    }
+
+    button {
+      background: darkgreen;
+      color: white;
+      border: none;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    #result {
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="app">
+  <h1>⚽ Football Predictor</h1>
+
+  <label>Home team</label>
+  <input id="home" placeholder="e.g. Arsenal">
+
+  <label>Away team</label>
+  <input id="away" placeholder="e.g. Chelsea">
+
+  <p>Enter each team's average goals per match.</p>
+
+  <label>Home team's average goals scored</label>
+  <input id="hg" type="number" min="0"
+         max="10" step="0.1" value="1.6">
+
+  <label>Away team's average goals scored</label>
+  <input id="ag" type="number" min="0"
+         max="10" step="0.1" value="1.2">
+
+  <button onclick="predict()">Calculate probabilities</button>
+
+  <div id="result">
+    Enter team names and statistics to begin.
+  </div>
+</div>
+
+<script>
+function predict() {
+  const home = document.getElementById("home").value.trim();
+  const away = document.getElementById("away").value.trim();
+  const hg = Number(document.getElementById("hg").value);
+  const ag = Number(document.getElementById("ag").value);
+  const result = document.getElementById("result");
+
+  if (!home || !away) {
+    result.textContent = "Enter both team names.";
+    return;
+  }
+
+  if (home.toLowerCase() === away.toLowerCase()) {
+    result.textContent = "Choose two different teams.";
+    return;
+  }
+
+  const homeInput = document.getElementById("hg").value;
+  const awayInput = document.getElementById("ag").value;
+
+  if (homeInput === "" || awayInput === "" ||
+      !Number.isFinite(hg) || !Number.isFinite(ag) ||
+      hg < 0 || ag < 0 || hg > 10 || ag > 10) {
+    result.textContent = "Enter valid averages from 0 to 10.";
+    return;
+  }
+
+  // Simplified model: goals are treated as expected goal rates.
+  // Home advantage is represented by a small adjustment.
+  const homeRate = hg * 1.1;
+  const awayRate = ag;
+
+  function factorial(n) {
+    let answer = 1;
+    for (let i = 2; i <= n; i++) answer *= i;
+    return answer;
+  }
+
+  function poisson(k, rate) {
+    return Math.exp(-rate) * Math.pow(rate, k) / factorial(k);
+  }
+
+  let homeWin = 0;
+  let draw = 0;
+  let awayWin = 0;
+
+  for (let h = 0; h <= 10; h++) {
+    for (let a = 0; a <= 10; a++) {
+      const probability = poisson(h, homeRate) *
+                          poisson(a, awayRate);
+
+      if (h > a) homeWin += probability;
+      else if (h === a) draw += probability;
+      else awayWin += probability;
+    }
+  }
+
+  const total = homeWin + draw + awayWin;
+  homeWin = homeWin / total * 100;
+  draw = draw / total * 100;
+  awayWin = awayWin / total * 100;
+
+  result.innerHTML =
+    "<h3>" + home + " vs " + away + "</h3>" +
+    "Home win: " + homeWin.toFixed(1) + "%<br>" +
+    "Draw: " + draw.toFixed(1) + "%<br>" +
+    "Away win: " + awayWin.toFixed(1) + "%<br>" +
+    "<small>Experimental estimates based on the averages you entered, " +
+    "assuming independent Poisson goal counts. Not guaranteed results.</small>";
+}
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoalPredict</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #08111f;
+  color: white;
+}
+
+header {
+  padding: 22px 18px;
+  background: #101d2e;
+  border-bottom: 2px solid #20d47b;
+}
+
+.brand {
+  color: #20d47b;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header p {
+  color: #9bacc2;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 18px;
+}
+
+.tag {
+  color: #20d47b;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+h2 { margin-bottom: 8px; }
+
+.card {
+  background: #142237;
+  padding: 18px;
+  border-radius: 14px;
+  margin-top: 16px;
+  border: 1px solid #263951;
+}
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  font-size: 13px;
+  color: #c7d4e5;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 8px;
+  border: 1px solid #344860;
+  background: #0a1627;
+  color: white;
+  font-size: 16px;
+}
+
+.teams {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background: #20d47b;
+  color: #07151a;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 9px;
+}
+
+button:active { opacity: 0.8; }
+
+.note {
+  color: #91a5bd;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.result-row {
+  margin-top: 18px;
+}
+
+.result-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.bar {
+  height: 9px;
+  background: #26374b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: #20d47b;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  color: #8294aa;
+  font-size: 12px;
+  padding: 25px 10px;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="brand">⚽ GoalPredict</div>
+  <p>FOOTBALL ANALYSIS & PROBABILITY</p>
+</header>
+
+<main class="container">
+  <div class="tag">MATCH CENTRE</div>
+  <h2>Predict a match</h2>
+  <p class="note">Enter the teams and their average goals per match.</p>
+
+  <section class="card">
+    <div class="teams">
+      <div>
+        <label for="home">HOME TEAM</label>
+        <input id="home" placeholder="Arsenal">
+      </div>
+      <div>
+        <label for="away">AWAY TEAM</label>
+        <input id="away" placeholder="Chelsea">
+      </div>
+    </div>
+
+    <label for="hg">Home average goals scored</label>
+    <input id="hg" type="number" min="0" max="10"
+           step="0.1" value="1.6">
+
+    <label for="ag">Away average goals scored</label>
+    <input id="ag" type="number" min="0" max="10"
+           step="0.1" value="1.2">
+
+    <button onclick="predict()">ANALYSE MATCH →</button>
+  </section>
+
+  <section class="card" id="output" aria-live="polite">
+    <div class="tag">PREDICTION RESULTS</div>
+    <p class="note">Your calculated probabilities will appear here.</p>
+  </section>
+
+  <p class="note">
+    Predictions are statistical estimates, not guaranteed outcomes.
+    This demo uses the averages you enter and does not fetch live data.
+  </p>
+</main>
+
+<footer>GOALPREDICT · FOOTBALL DATA & STATISTICS</footer>
+
+<script>
+function predict() {
+  const home = document.getElementById("home").value.trim();
+  const away = document.getElementById("away").value.trim();
+  const hgText = document.getElementById("hg").value;
+  const agText = document.getElementById("ag").value;
+  const hg = Number(hgText);
+  const ag = Number(agText);
+  const output = document.getElementById("output");
+
+  if (!home || !away || home.toLowerCase() === away.toLowerCase()) {
+    output.innerHTML = "<p>Please enter two different team names.</p>";
+    return;
+  }
+
+  if (hgText === "" || agText === "" ||
+      !Number.isFinite(hg) || !Number.isFinite(ag) ||
+      hg < 0 || ag < 0 || hg > 10 || ag > 10) {
+    output.innerHTML = "<p>Enter valid goal averages from 0 to 10.</p>";
+    return;
+  }
+
+  function factorial(n) {
+    let f = 1;
+    for (let i = 2; i <= n; i++) f *= i;
+    return f;
+  }
+
+  function poisson(k, rate) {
+    return Math.exp(-rate) * Math.pow(rate, k) / factorial(k);
+  }
+
+  const homeRate = hg * 1.1;
+  const awayRate = ag;
+  let hw = 0, dr = 0, aw = 0;
+
+  for (let h = 0; h <= 10; h++) {
+    for (let a = 0; a <= 10; a++) {
+      const p = poisson(h, homeRate) * poisson(a, awayRate);
+      if (h > a) hw += p;
+      else if (h === a) dr += p;
+      else aw += p;
+    }
+  }
+
+  const total = hw + dr + aw;
+  hw = hw / total * 100;
+  dr = dr / total * 100;
+  aw = aw / total * 100;
+
+  function row(label, value) {
+    return `<div class="result-row">
+      <div class="result-top">
+        <span>${label}</span><strong>${value.toFixed(1)}%</strong>
+      </div>
+      <div class="bar"><div class="fill"
+        style="width:${value}%"></div></div>
+    </div>`;
+  }
+
+  output.innerHTML =
+    `<div class="tag">PREDICTION RESULTS</div>
+     <h2>${home} vs ${away}</h2>
+     ${row("Home win", hw)}
+     ${row("Draw", dr)}
+     ${row("Away win", aw)}
+     <p class="note">Model estimates only. No live match data is used.</p>`;
+}
+</script>
+</body>
+</html>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .catch(error => console.error("Service worker error:", error));
+    });
+  }
+</script>
+</body>
+</html>

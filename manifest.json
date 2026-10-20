@@ -1,0 +1,21 @@
+
+{
+  "id": "./",
+  "name": "GoalPredict",
+  "short_name": "GoalPredict",
+  "description": "An educational football match probability calculator",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#101820",
+  "background_color": "#101820",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
